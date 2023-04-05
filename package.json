@@ -1,0 +1,21 @@
+{
+  "name": "image-cracker",
+  "version": "1.0.0",
+  "description": "Image animation - split the image into smaller fragments and bring together as a single image",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "image-animation",
+    "split-image",
+    "image",
+    "split"
+  ],
+  "author": "kousik.ui.developer@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
+}

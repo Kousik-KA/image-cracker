@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.row {
+  display: flex;
+
+  --x: 0;
+  --y: 0;
+}
+#container {
+  position: fixed;
+}
+.box {
+  scale: 1.15;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: translate(var(--x), var(--y));
+  animation: move 1s ease-in-out 1 forwards;
+}
+
+.box:hover {
+  animation: none;
+  transform: translate(0, 0);
+}
+@keyframes move {
+  20% {
+    opacity: 1;
+  }
+  100% {
+    scale: 1;
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
