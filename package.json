@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kousik-KA/image-cracker.git"
+  },
   "keywords": [
     "image-animation",
     "split-image",
@@ -17,5 +21,9 @@
     "pixelate-image"
   ],
   "author": "kousik.ui.developer@gmail.com",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kousik-KA/image-cracker/issues"
+  },
+  "homepage": "https://github.com/Kousik-KA/image-cracker#readme"
 }
