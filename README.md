@@ -2,6 +2,8 @@
 
 Image-cracker is a lightweight and customizable JavaScript library that allows you to break down an image into small pixel elements and bring them together into a single image via animation in your web application. It is compatible with any frontend framework or library, such as React, Angular, Vue.
 
+![Demo](https://github.com/Kousik-KA/images/blob/main/image-cracker-demo.gif?raw=true)
+
 ## Installation
 
 To install `image-cracker` using npm, run the following command:
