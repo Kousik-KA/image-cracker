@@ -6,28 +6,24 @@ body {
   align-items: center;
   min-height: 100vh;
 }
-.row {
+.image__cracker-row {
   display: flex;
-
   --x: 0;
   --y: 0;
 }
-#container {
-  position: fixed;
-}
-.box {
+.image__cracker-box {
   scale: 1.15;
   background-repeat: no-repeat;
   opacity: 0;
   transform: translate(var(--x), var(--y));
-  animation: move 1s ease-in-out 1 forwards;
+  animation: image__cracker-move 1s ease-in-out 1 forwards;
 }
 
-.box:hover {
+.image__cracker-box:hover {
   animation: none;
   transform: translate(0, 0);
 }
-@keyframes move {
+@keyframes image__cracker-move {
   20% {
     opacity: 1;
   }

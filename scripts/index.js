@@ -1,11 +1,4 @@
-const DEFAULT_OPTIONS = {
-  containerId: "container",
-  imageURL: "https://picsum.photos/200",
-  width: 100,
-  height: 100,
-  pixelUnit: 10,
-  pixelShape: "square",
-};
+import { DEFAULT_OPTIONS, PIXEL_LIMIT } from "./helpers";
 
 class ImageSpliter {
   #_options;
@@ -16,19 +9,32 @@ class ImageSpliter {
 
   constructor(options) {
     this.#_options = { ...DEFAULT_OPTIONS, ...options };
+
+    const { width, height, pixelUnit } = this.#_options;
+    const limitReached =
+      (width / pixelUnit) * (height / pixelUnit) > PIXEL_LIMIT;
+    if (limitReached) {
+      throw new Error("Too many pixels");
+    }
+    // CREATE container
     const container = document.getElementById(this.#_options.containerId);
     if (!container) {
       this.#_container = document.createElement("div");
       document.body.appendChild(this.#_container);
       this.#_container.id = this.#_options.containerId;
+      this.#_container.style.position = "fixed";
     } else {
       this.#_container = container;
     }
-    this.#_row = document.createElement("div");
-    this.#_row.className = "row";
 
-    this.#_box = document.createElement("div");
-    this.#_box.className = "box";
+    // ADD row
+    this.#_container.innerHTML = "";
+    this.#_row = document.createElement("div");
+    this.#_row.className = "image__cracker-row";
+
+    // ADD box
+    this.#_box = document.createElement("span");
+    this.#_box.className = "image__cracker-box";
 
     Object.entries(this.#_options).forEach(([key, value]) => {
       this[key] = value;
@@ -60,8 +66,11 @@ class ImageSpliter {
   }
 
   init() {
+    //split the height to create rows
     for (let i = 0; i < this.#_options.height / this.#_divider; i++) {
       const row = this.#_row.cloneNode();
+
+      //split the width to create box
       for (let j = 0; j < this.#_options.width / this.#_divider; j++) {
         const box = this.#_box.cloneNode();
         box.style.backgroundPosition = `-${j * this.#_divider}px -${
@@ -83,12 +92,11 @@ class ImageSpliter {
       this.#_container.appendChild(row);
     }
   }
+
+  remove() {
+    this.#_container.innerHTML = "";
+  }
 }
 
-new ImageSpliter({
-  imageURL: "vite.svg",
-  width: 200,
-  height: 200,
-  pixelUnit: 10,
-  pixelShape: "circle",
-});
+export default ImageSpliter;
++
