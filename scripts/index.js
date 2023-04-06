@@ -99,4 +99,3 @@ class ImageSpliter {
 }
 
 export default ImageSpliter;
-+
