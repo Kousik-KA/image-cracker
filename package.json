@@ -1,6 +1,6 @@
 {
   "name": "image-cracker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Image animation - split the image into smaller fragments and bring together as a single image",
   "main": "scripts/index.js",
   "scripts": {
